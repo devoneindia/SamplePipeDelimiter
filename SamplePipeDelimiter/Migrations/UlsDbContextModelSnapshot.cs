@@ -24,12 +24,6 @@ namespace SamplePipeDelimiter.Migrations
 
             modelBuilder.Entity("SamplePipeDelimiter.Models.PubAccCO", b =>
                 {
-                    b.Property<string>("RecordType")
-                        .HasMaxLength(2)
-                        .HasColumnType("character varying(2)")
-                        .HasColumnName("record_type")
-                        .HasColumnOrder(0);
-
                     b.Property<string>("CallSign")
                         .HasMaxLength(10)
                         .HasColumnType("character varying(10)")
@@ -47,6 +41,12 @@ namespace SamplePipeDelimiter.Migrations
                         .HasColumnType("character varying(255)")
                         .HasColumnName("description")
                         .HasColumnOrder(5);
+
+                    b.Property<string>("RecordType")
+                        .HasMaxLength(2)
+                        .HasColumnType("character varying(2)")
+                        .HasColumnName("record_type")
+                        .HasColumnOrder(0);
 
                     b.Property<string>("StatusCode")
                         .HasMaxLength(1)
@@ -70,8 +70,6 @@ namespace SamplePipeDelimiter.Migrations
                         .HasColumnType("numeric(10,0)")
                         .HasColumnName("unique_system_identifier")
                         .HasColumnOrder(1);
-
-                    b.HasKey("RecordType");
 
                     b.ToTable("pubacc_co", "main");
                 });

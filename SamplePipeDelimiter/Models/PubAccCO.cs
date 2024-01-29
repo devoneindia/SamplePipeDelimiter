@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SamplePipeDelimiter.Models
 {
-    [Table("pubacc_co", Schema = "main")] 
-
+    [Table(name: "pubacc_co", Schema = "main")] 
+    
     public class PubAccCO     
     {
         [Key]        

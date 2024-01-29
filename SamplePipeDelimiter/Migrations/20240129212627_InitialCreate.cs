@@ -19,7 +19,7 @@ namespace SamplePipeDelimiter.Migrations
                 schema: "main",
                 columns: table => new
                 {
-                    record_type = table.Column<string>(type: "character varying(2)", maxLength: 2, nullable: false),
+                    record_type = table.Column<string>(type: "character varying(2)", maxLength: 2, nullable: true),
                     unique_system_identifier = table.Column<decimal>(type: "numeric(10,0)", precision: 10, scale: 0, nullable: false),
                     uls_file_num = table.Column<string>(type: "character varying(14)", maxLength: 14, nullable: true),
                     callsign = table.Column<string>(type: "character varying(10)", maxLength: 10, nullable: true),
@@ -30,7 +30,6 @@ namespace SamplePipeDelimiter.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_pubacc_co", x => x.record_type);
                 });
         }
 

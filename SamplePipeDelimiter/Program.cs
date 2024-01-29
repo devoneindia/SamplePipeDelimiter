@@ -2,7 +2,6 @@
 
 public class Program
 {
-
     public static void Main(string[] args)
     {
         string line1 = "CO|1102336||KA42382||E||";
