@@ -9,4 +9,5 @@ public class Program
         string line2 = "CO|1102461||KA49869||0||";
         string line3 = "CO|1102685||KA66163||0RADAR SPEED MONITORING DEVIC||";
     }
+
 }

@@ -24,7 +24,7 @@ namespace SamplePipeDelimiter.Contexts
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddJsonFile("appsettings.local.json", optional: true)
                 .Build();
-            string dbConnString = configurationInstance["ConnectionStrings:UlsDb"] ?? "";
+            string dbConnString = configurationInstance["ConnectionStrings:ulsDdb"] ?? "";
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
         }

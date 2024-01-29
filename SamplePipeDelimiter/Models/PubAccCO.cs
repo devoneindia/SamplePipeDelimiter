@@ -9,10 +9,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SamplePipeDelimiter.Models
 {
-    [Table("PubAccCOs")]
+    [Table("pubacc_co", Schema = "main")] 
 
-    public class PubAccCO
+    public class PubAccCO     
     {
+        [Key]        
         [StringLength(2)]
         [Column(name: "record_type", Order = 0)]
         public string? RecordType { get; set; }

@@ -3,17 +3,17 @@
 Run the following in PSQL Tool (postgres)
 
 	 
-	akila// CREATE USER localUlsap01 WITH password 'localpwd01';
+	akila// CREATE USER userassem01 WITH password 'localpwd01';
 
 	
-	//akila//CREATE DATABASE UlsDb;
+	//akila//CREATE DATABASE ulsdb;
 
 	
-	akila//GRANT ALL PRIVILEGES ON DATABASE UlsDb TO localUlsap01;
+	akila//GRANT ALL PRIVILEGES ON DATABASE ulsdb TO userassem01;
 
 	
-akila//	\c UlsDb
-	GRANT ALL on SCHEMA public to localUlsap01;
+   	\c ulsdb
+	GRANT ALL on SCHEMA public to userassem01;                          
 
 
 	///to drop database and tables
