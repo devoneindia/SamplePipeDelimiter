@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SamplePipeDelimiter.Models
 {
-    [Table("PubAccCOs")]
-
+    [Table("pubacc_co", Schema ="main")]    
     public class PubAccCO
-    {
+    {        
         [StringLength(2)]
         [Column(name: "record_type", Order = 0)]
         public string? RecordType { get; set; }
 
+        [Key]
         [Precision(10, 0)] //Note this is 9 in legacy.
         [Column(name: "unique_system_identifier", Order = 1)]
         public required decimal UniqueSystemIdentifier { get; set; }
