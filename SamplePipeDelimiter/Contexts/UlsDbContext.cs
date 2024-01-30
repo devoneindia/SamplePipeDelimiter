@@ -12,7 +12,7 @@ namespace SamplePipeDelimiter.Contexts
     public class UlsDbContext : DbContext
     {
         public DbSet<PubAccCO> PubAccCOs { get; set; }
-        
+
         public UlsDbContext()
         {
             AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
@@ -25,8 +25,13 @@ namespace SamplePipeDelimiter.Contexts
                 .AddJsonFile("appsettings.local.json", optional: true)
                 .Build();
             string dbConnString = configurationInstance["ConnectionStrings:UlsDb"] ?? "";
+            Console.WriteLine($"Connection String: {dbConnString}");
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PubAccCO>(co => { co.HasNoKey(); });
         }
     }
 }
