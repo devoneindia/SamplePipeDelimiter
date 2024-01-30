@@ -1,19 +1,19 @@
-﻿//"UlsDb": "User ID=localUlsap01;Password=localpwd01;Host=localhost;Port=5432;Database=UlsDb;Connection Lifetime=0;"
+﻿//"UlsDb": "User ID=localulsap02;Password=localpwd02;Host=localhost;Port=5432;Database=ulsdb;Connection Lifetime=0;"
 
 Run the following in PSQL Tool (postgres)
 
 	 
-	akila// CREATE USER localUlsap01 WITH password 'localpwd01';
+	CREATE USER localulsap02 WITH password 'localpwd02';
 
 	
-	//akila//CREATE DATABASE UlsDb;
+	CREATE DATABASE ulsdb;
 
 	
-	akila//GRANT ALL PRIVILEGES ON DATABASE UlsDb TO localUlsap01;
+	GRANT ALL PRIVILEGES ON DATABASE ulsdb TO localulsap02;
 
 	
-akila//	\c UlsDb
-	GRANT ALL on SCHEMA public to localUlsap01;
+	\c ulsdb
+	GRANT ALL on SCHEMA public to localulsap02;
 
 
 	///to drop database and tables

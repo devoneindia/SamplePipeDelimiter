@@ -27,6 +27,16 @@ namespace SamplePipeDelimiter.Contexts
             string dbConnString = configurationInstance["ConnectionStrings:UlsDb"] ?? "";
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
+
         }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<PubAccCO>(co => { co.HasNoKey();});
+        //}
+
+   
     }
+
+    
 }

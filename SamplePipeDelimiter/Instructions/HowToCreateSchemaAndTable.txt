@@ -5,18 +5,20 @@ dotnet tool update --global dotnet-ef
 
 dotnet add package Microsoft.EntityFrameworkCore.Design
 
-dotnet ef migrations add InitialCreate --context  ShopDbContext
+dotnet ef migrations add InitialCreate --context  UlsDbContext
 
-dotnet ef migrations add InitialCreate1 --context ShopDbContext
+dotnet ef migrations add 20240130_Updated_DB --context UlsDbContext
 
-dotnet ef database update --context ShopDbContext
+
+
+dotnet ef database update --context UlsDbContext
 
 //HOW TO ADD a New column
 //To add newcolumn using Migration
 
-dotnet ef migrations added OrnamentalFishEntity --context ShopDbContext
-dotnet ef database update --context ShopDbContext
+dotnet ef migrations added OrnamentalFishEntity --context UlsDbContext
+dotnet ef database update --context UlsDbContext
 
-dotnet ef migrations add Updated --context  ShopDbContext
+dotnet ef migrations add Updated --context  UlsDbContext
 
 
