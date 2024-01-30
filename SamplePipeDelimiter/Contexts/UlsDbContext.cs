@@ -20,14 +20,13 @@ public class UlsDbContext : DbContext                                           
             .AddJsonFile("appsettings.json", optional: true)
             .AddJsonFile("appsettings.local.json", optional: true)
             .Build();
-    string dbConnString = configurationInstance["ConnectionStrings:ulsdb"] ?? "";
-    optionsBuilder.UseNpgsql(dbConnString)
-                              .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);         // Added this line for logging which means that this will show me what SQL queries are being executed in the background
+        string dbConnString = configurationInstance["ConnectionStrings:ulsdb"] ?? "";
+        optionsBuilder.UseNpgsql(dbConnString)
+                                  .LogTo(Console.WriteLine, Microsoft.Extensions.Logging.LogLevel.Information);         // Added this line for logging which means that this will show me what SQL queries are being executed in the background
 
         base.OnConfiguring(optionsBuilder);
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<PubAccCO>(co => { co.HasNoKey(); });
     }
 }
