@@ -55,7 +55,6 @@ public class Program
                 }
                 else
                 {
-                    // Handle the case where an entity with the same key is already in the DbContext
                     Console.WriteLine($"Entity with UniqueSystemIdentifier {uniqueSystemIdentifier} already exists.");
                 }
             }
