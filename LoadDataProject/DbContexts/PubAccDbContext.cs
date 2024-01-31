@@ -29,5 +29,6 @@ namespace LoadDataProject.DbContexts
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
         }
+       
     }
 }
