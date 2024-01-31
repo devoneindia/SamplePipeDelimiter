@@ -483,3 +483,4 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 /LoadDataProject/appsettings.local.json
+/LoadDataProject/appsettings.local.json

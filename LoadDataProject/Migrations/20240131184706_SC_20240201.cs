@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace LoadDataProject.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class SC_20240201 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,12 +33,12 @@ namespace LoadDataProject.Migrations
                     digital_mod_type = table.Column<string>(type: "character varying(255)", maxLength: 255, nullable: true),
                     frequency_number = table.Column<int>(type: "integer", nullable: true),
                     status_code = table.Column<string>(type: "character varying(1)", maxLength: 1, nullable: true),
-                    status_date = table.Column<DateTime>(type: "timestamp without time zone", nullable: true),
+                    status_date = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     emission_sequence_id = table.Column<int>(type: "integer", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_pubacc_em", x => x.record_type);
+                    table.PrimaryKey("PK_pubacc_em", x => x.unique_system_identifier);
                 });
 
             migrationBuilder.CreateIndex(
