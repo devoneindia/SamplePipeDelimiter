@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LoadDataProject.Migrations
 {
     [DbContext(typeof(PubAccDbContext))]
-    [Migration("20240130185318_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240130202927_added")]
+    partial class added
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,11 @@ namespace LoadDataProject.Migrations
 
             modelBuilder.Entity("LoadDataProject.Models.PubAccEM", b =>
                 {
-                    b.Property<string>("RecordType")
-                        .HasMaxLength(2)
-                        .HasColumnType("character varying(2)")
-                        .HasColumnName("record_type")
-                        .HasColumnOrder(0);
+                    b.Property<decimal>("UniqueSystemIdentifier")
+                        .HasPrecision(10)
+                        .HasColumnType("numeric(10,0)")
+                        .HasColumnName("unique_system_identifier")
+                        .HasColumnOrder(1);
 
                     b.Property<int?>("AntennaNumber")
                         .HasColumnType("integer")
@@ -95,6 +95,13 @@ namespace LoadDataProject.Migrations
                         .HasColumnName("location_number")
                         .HasColumnOrder(5);
 
+                    b.Property<string>("RecordType")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("character varying(2)")
+                        .HasColumnName("record_type")
+                        .HasColumnOrder(0);
+
                     b.Property<string>("StatusCode")
                         .HasMaxLength(1)
                         .HasColumnType("character varying(1)")
@@ -112,13 +119,7 @@ namespace LoadDataProject.Migrations
                         .HasColumnName("uls_file_number")
                         .HasColumnOrder(2);
 
-                    b.Property<decimal>("UniqueSystemIdentifier")
-                        .HasPrecision(10)
-                        .HasColumnType("numeric(10,0)")
-                        .HasColumnName("unique_system_identifier")
-                        .HasColumnOrder(1);
-
-                    b.HasKey("RecordType");
+                    b.HasKey("UniqueSystemIdentifier");
 
                     b.HasIndex("UniqueSystemIdentifier");
 

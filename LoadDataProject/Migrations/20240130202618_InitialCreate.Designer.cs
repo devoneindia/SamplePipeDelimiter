@@ -3,6 +3,7 @@ using System;
 using LoadDataProject.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LoadDataProject.Migrations
 {
     [DbContext(typeof(PubAccDbContext))]
-    partial class PubAccDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240130202618_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,12 +27,6 @@ namespace LoadDataProject.Migrations
 
             modelBuilder.Entity("LoadDataProject.Models.PubAccEM", b =>
                 {
-                    b.Property<decimal>("UniqueSystemIdentifier")
-                        .HasPrecision(10)
-                        .HasColumnType("numeric(10,0)")
-                        .HasColumnName("unique_system_identifier")
-                        .HasColumnOrder(1);
-
                     b.Property<int?>("AntennaNumber")
                         .HasColumnType("integer")
                         .HasColumnName("antenna_number")
@@ -116,7 +113,11 @@ namespace LoadDataProject.Migrations
                         .HasColumnName("uls_file_number")
                         .HasColumnOrder(2);
 
-                    b.HasKey("UniqueSystemIdentifier");
+                    b.Property<decimal>("UniqueSystemIdentifier")
+                        .HasPrecision(10)
+                        .HasColumnType("numeric(10,0)")
+                        .HasColumnName("unique_system_identifier")
+                        .HasColumnOrder(1);
 
                     b.HasIndex("UniqueSystemIdentifier");
 

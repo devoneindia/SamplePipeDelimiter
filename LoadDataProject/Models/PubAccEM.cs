@@ -14,11 +14,12 @@ namespace LoadDataProject.Models
     [Index(nameof(UniqueSystemIdentifier))]
     public class PubAccEM
     {
-        [Key]
+        
         [StringLength(2)]
         [Column(name: "record_type", Order = 0)]
         public required string RecordType { get; set; }
 
+        [Key]
         [Precision(10, 0)] //Note this is 9 in legacy.
         [Column(name: "unique_system_identifier", Order = 1)]
         public required decimal UniqueSystemIdentifier { get; set; }
