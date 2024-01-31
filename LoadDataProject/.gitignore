@@ -482,5 +482,3 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-/SamplePipeDelimiter/appsettings.local.json
-/LoadDataProject/Models/appsettings.local.json
