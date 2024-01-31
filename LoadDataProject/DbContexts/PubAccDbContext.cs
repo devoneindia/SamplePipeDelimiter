@@ -24,7 +24,7 @@ namespace LoadDataProject.DbContexts
                 .AddJsonFile("appsettings.json", optional: true)
                 .AddJsonFile("appsettings.local.json", optional: true)
                 .Build();
-            string dbConnString = configurationInstance["ConnectionStrings:EMDb"] ?? "";
+            string dbConnString = configurationInstance["ConnectionStrings:EmDb"] ?? "";
             Console.WriteLine($"Connection String: {dbConnString}");
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
