@@ -35,17 +35,19 @@ public class Program
                 var existingEntity = dbContext.PubAccEMs.Find(pubAccCOModel.UniqueSystemIdentifier);
                 if (existingEntity != null)
                 {
-                    dbContext.PubAccEMs.Add(pubAccCOModel);
+                   dbContext.PubAccEMs.Entry(existingEntity).CurrentValues.SetValues(pubAccCOModel);
                 }
                 else
                 {
-                    dbContext.PubAccEMs.Entry(existingEntity).CurrentValues.SetValues(pubAccCOModel);
+                    dbContext.PubAccEMs.Add(pubAccCOModel);
                 }
 
             }
         }
-        //dbContext.PubAccEMs.AddRange(entitiesToAdd);
+   
         dbContext.SaveChanges();
+        dbContext.PubAccEMs.AddRange(entitiesToAdd);
+
     }
     private static int ParseInt(string value)
     {
