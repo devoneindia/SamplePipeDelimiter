@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace LoadDataProject.DbContexts
 {
@@ -26,9 +27,14 @@ namespace LoadDataProject.DbContexts
                 .Build();
             string dbConnString = configurationInstance["ConnectionStrings:EMDb"] ?? "";
             Console.WriteLine($"Connection String: {dbConnString}");
+            optionsBuilder.UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()));
             optionsBuilder.UseNpgsql(dbConnString);
             base.OnConfiguring(optionsBuilder);
         }
-       
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<PubAccEM>(eb =>{ eb.HasNoKey();});
+           
+        }
     }
 }

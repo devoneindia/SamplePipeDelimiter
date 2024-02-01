@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LoadDataProject.Migrations
 {
     [DbContext(typeof(PubAccDbContext))]
-    [Migration("20240131183244_Updated_addingAllvalues")]
-    partial class Updated_addingAllvalues
+    [Migration("20240201165725_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,12 +27,6 @@ namespace LoadDataProject.Migrations
 
             modelBuilder.Entity("LoadDataProject.Models.PubAccEM", b =>
                 {
-                    b.Property<decimal>("UniqueSystemIdentifier")
-                        .HasPrecision(10)
-                        .HasColumnType("numeric(10,0)")
-                        .HasColumnName("unique_system_identifier")
-                        .HasColumnOrder(1);
-
                     b.Property<int?>("AntennaNumber")
                         .HasColumnType("integer")
                         .HasColumnName("antenna_number")
@@ -119,7 +113,11 @@ namespace LoadDataProject.Migrations
                         .HasColumnName("uls_file_number")
                         .HasColumnOrder(2);
 
-                    b.HasKey("UniqueSystemIdentifier");
+                    b.Property<decimal>("UniqueSystemIdentifier")
+                        .HasPrecision(10)
+                        .HasColumnType("numeric(10,0)")
+                        .HasColumnName("unique_system_identifier")
+                        .HasColumnOrder(1);
 
                     b.HasIndex("UniqueSystemIdentifier");
 
