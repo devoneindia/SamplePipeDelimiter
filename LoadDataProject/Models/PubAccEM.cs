@@ -19,6 +19,7 @@ namespace LoadDataProject.Models
         [Column(name: "record_type", Order = 0)]
         public required string RecordType { get; set; }
 
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         [Precision(10, 0)] //Note this is 9 in legacy.
         [Column(name: "unique_system_identifier", Order = 1)]

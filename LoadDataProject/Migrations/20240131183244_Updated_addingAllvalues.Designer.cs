@@ -3,6 +3,7 @@ using System;
 using LoadDataProject.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace LoadDataProject.Migrations
 {
     [DbContext(typeof(PubAccDbContext))]
-    partial class PubAccDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240131183244_Updated_addingAllvalues")]
+    partial class Updated_addingAllvalues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,7 +28,6 @@ namespace LoadDataProject.Migrations
             modelBuilder.Entity("LoadDataProject.Models.PubAccEM", b =>
                 {
                     b.Property<decimal>("UniqueSystemIdentifier")
-                        .ValueGeneratedOnAdd()
                         .HasPrecision(10)
                         .HasColumnType("numeric(10,0)")
                         .HasColumnName("unique_system_identifier")
