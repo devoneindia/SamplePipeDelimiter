@@ -24,12 +24,6 @@ namespace LoadDataProject.Migrations
 
             modelBuilder.Entity("LoadDataProject.Models.PubAccEM", b =>
                 {
-                    b.Property<string>("RecordType")
-                        .HasMaxLength(2)
-                        .HasColumnType("character varying(2)")
-                        .HasColumnName("record_type")
-                        .HasColumnOrder(0);
-
                     b.Property<int?>("AntennaNumber")
                         .HasColumnType("integer")
                         .HasColumnName("antenna_number")
@@ -92,6 +86,13 @@ namespace LoadDataProject.Migrations
                         .HasColumnName("location_number")
                         .HasColumnOrder(5);
 
+                    b.Property<string>("RecordType")
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("character varying(2)")
+                        .HasColumnName("record_type")
+                        .HasColumnOrder(0);
+
                     b.Property<string>("StatusCode")
                         .HasMaxLength(1)
                         .HasColumnType("character varying(1)")
@@ -114,8 +115,6 @@ namespace LoadDataProject.Migrations
                         .HasColumnType("numeric(10,0)")
                         .HasColumnName("unique_system_identifier")
                         .HasColumnOrder(1);
-
-                    b.HasKey("RecordType");
 
                     b.HasIndex("UniqueSystemIdentifier");
 

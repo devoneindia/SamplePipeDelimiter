@@ -38,7 +38,6 @@ namespace LoadDataProject.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_pubacc_em", x => x.record_type);
                 });
 
             migrationBuilder.CreateIndex(
